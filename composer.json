@@ -1,0 +1,11 @@
+{
+    "name": "mini framework",
+    "description": "init composer",
+    "authors": [
+        {
+            "name": "Dominik Rembis",
+            "email": "dominik.rembis@gmail.com"
+        }
+    ],
+    "require": {}
+}
