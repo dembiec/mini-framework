@@ -7,5 +7,13 @@
             "email": "dominik.rembis@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "files": [
+            "routing/http.php"
+        ],
+        "psr-4": {
+            "Route\\": "routing/"
+        }
+    }
 }
