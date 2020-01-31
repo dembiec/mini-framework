@@ -8,17 +8,18 @@ class Router
         'post' => []
     ];
 
-    public function get($url, $tmp)
+    public function get($url, $controller)
     {
-        $this->redirectMap['get'][$url] = $tmp;
+        $this->redirectMap['get'][$url] = $controller;
     }
 
     function __destruct()
     {
-        if (isset($this->redirectMap['get'][$_GET['url']])) {
-            echo true;
+        $url = $_GET['url'];
+        if (isset($this->redirectMap['get'][$url])) {
+            call_user_func($this->redirectMap['get'][$url]);
         } else {
-            echo false;
+            echo 0;
         }
     }
 }
