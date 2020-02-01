@@ -14,7 +14,8 @@
         ],
         "psr-4": {
             "Route\\": "routing/",
-            "Controller\\": "controllers/"
+            "Controller\\": "controllers/",
+            "Utility\\": "utilities/"
         }
     }
 }
