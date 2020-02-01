@@ -15,7 +15,7 @@ class Router
 
     function __destruct()
     {
-        $url = $_GET['url'];
+        $url = $_REQUEST['url'];
         if (isset($this->redirectMap['get'][$url])) {
             call_user_func($this->redirectMap['get'][$url]);
         } else {
