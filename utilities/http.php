@@ -3,8 +3,10 @@ namespace Utility;
 
 class Http
 {
-    public function urlParam(string $url = null, $paramIndex = null)
+    public function urlParam($paramIndex = null)
     {
+        $url = $_GET['url'];
+        
         $parameter = explode('/', $url);
         $parameter = array_filter($parameter);
 
