@@ -19,8 +19,9 @@ class Router
 
         foreach ($this->redirectMap['get'] as $definedUrl => $definedController) {
             $regEx = str_replace(['{?}', '/'], ['([a-zA-Z0-9]+)', '\/'], $definedUrl);
-            if (preg_match('/^'.$regEx.'$/', $url)) {
-                call_user_func($definedController);
+            if (preg_match('/^'.$regEx.'$/', $url, $parameters)) {
+                unset($parameters[0]);
+                call_user_func($definedController, $parameters);
                 exit;
             }
         }
