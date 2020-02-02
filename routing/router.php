@@ -21,8 +21,9 @@ class Router
             $regEx = str_replace(['{?}', '/'], ['([^.])', '\/'], $definedUrl);
             if (preg_match('/^'.$regEx.'$/', $url)) {
                 call_user_func($definedController);
-                break;
+                exit;
             }
         }
+        echo '404';
     }
 }
