@@ -3,7 +3,7 @@ namespace Utility;
 
 class Http
 {
-    public function ulrParam(string $url = null, $paramIndex = null)
+    public function urlParam(string $url = null, $paramIndex = null)
     {
         $parameter = explode('/', $url);
         $parameter = array_filter($parameter);
