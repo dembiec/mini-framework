@@ -16,10 +16,13 @@ class Router
     function __destruct()
     {
         $url = $_GET['url'];
-        if (isset($this->redirectMap['get'][$url])) {
-            call_user_func($this->redirectMap['get'][$url]);
-        } else {
-            echo 0;
+
+        foreach ($this->redirectMap['get'] as $definedUrl => $definedController) {
+            $regEx = str_replace(['{?}', '/'], ['([^.])', '\/'], $definedUrl);
+            if (preg_match('/^'.$regEx.'$/', $url)) {
+                call_user_func($definedController);
+                break;
+            }
         }
     }
 }
