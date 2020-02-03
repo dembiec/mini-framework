@@ -8,7 +8,7 @@ class Router
         'post' => []
     ];
 
-    public function get($url, $controller)
+    public function get(string $url, string $controller)
     {
         $this->redirectMap['get'][$url] = $controller;
     }
