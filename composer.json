@@ -7,7 +7,9 @@
             "email": "dominik.rembis@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "twig/twig": "^3.0"
+    },
     "autoload": {
         "files": [
             "routing/http.php"
