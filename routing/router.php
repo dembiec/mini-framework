@@ -16,8 +16,9 @@ class Router
     function __destruct()
     {
         $url = $_GET['url'];
+        $requestMethod = strtolower($_SERVER['REQUEST_METHOD']);
 
-        foreach ($this->redirectMap['get'] as $definedUrl => $definedController) {
+        foreach ($this->redirectMap[$requestMethod] as $definedUrl => $definedController) {
             $regEx = str_replace(['{?}', '/'], ['([a-zA-Z0-9]+)', '\/'], $definedUrl);
             if (preg_match('/^'.$regEx.'$/', $url, $parameters)) {            
                 array_splice($parameters, 0,1);
