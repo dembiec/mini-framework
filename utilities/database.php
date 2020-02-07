@@ -1,18 +1,16 @@
 <?php
 namespace Utility;
+use Utility\Config;
 use PDO;
 
 class Database
 {
     public function connect()
     {
-        $mysql_host = 'localhost';
-        $username = 'root';
-        $password = '';
-        $database = 'mini-framework';
+        $config = Config::read('database');
 
-        $pdo = new PDO('mysql:host='.$mysql_host.';dbname='.$database, $username, $password );
-        return $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo = new PDO('mysql:host='.$config['host'].';dbname='.$config['database'], $config['username'], $config['password']);
+        return $pdo;
     }
 
     public function query(string $query = null)
