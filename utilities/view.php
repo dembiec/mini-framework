@@ -5,11 +5,17 @@ use Twig\Environment;
 
 class View
 {
-    public $cache = true;
+    public $cache = TRUE;
+    public $clearCache = FALSE;
 
-    public function twigCache(bool $cache = false)
+    public function twigCache(bool $cache = FALSE)
     {
         $this->cache = $cache;
+    }
+
+    public function twigClearCache(bool $clearCache = TRUE)
+    {
+        $this->clearCache = $clearCache;
     }
 
     public function twigLoader()
@@ -18,6 +24,7 @@ class View
         if ($this->cache) {
             $twig = new Environment($loader, [
                 'cache' => dirname(__DIR__).'/views/cache',
+                'auto_reload' => $this->clearCache
             ]);
         } else {
             $twig = new Environment($loader);
