@@ -13,6 +13,11 @@ class Router
         $this->redirectMap['get'][$url] = $controller;
     }
 
+    public function post(string $url, string $controller)
+    {
+        $this->redirectMap['post'][$url] = $controller;
+    }
+
     function __destruct()
     {
         $url = $_GET['url'];
