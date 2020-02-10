@@ -8,12 +8,12 @@ class Router
         'post' => []
     ];
 
-    public function get(string $url, string $controller)
+    public function get(string $url = NULL, string $controller = NULL)
     {
         $this->redirectMap['get'][$url] = $controller;
     }
 
-    public function post(string $url, string $controller)
+    public function post(string $url = NULL, string $controller = NULL)
     {
         $this->redirectMap['post'][$url] = $controller;
     }
@@ -26,8 +26,9 @@ class Router
         foreach ($this->redirectMap[$requestMethod] as $definedUrl => $definedController) {
             $regEx = str_replace(['{?}', '/'], ['([a-zA-Z0-9]+)', '\/'], $definedUrl);
             if (preg_match('/^'.$regEx.'$/', $url, $parameters)) {            
+                $object = explode("::", $definedController);
                 array_splice($parameters, 0,1);
-                call_user_func($definedController, $parameters);
+                call_user_func([new $object[0], $object[1]], $parameters);
                 exit;
             }
         }
