@@ -3,28 +3,123 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-        <title>Pricing example for Bootstrap</title>
-        <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+        <title>Hello, world!</title>
+        <style>
+        * {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .custom-navbar {
+            background: linear-gradient(120deg,#7f70f5,#0ea0ff);
+            min-height: 5.2rem;
+        }
+
+        .custom-navbar a:hover {
+            opacity: .75 !important;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem !important;
+        }
+
+        .nav-item {
+            padding-left: .8rem;
+            padding-right: .8rem;
+        }
+
+        .custom-nav-link {
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .active {
+            opacity: .75 !important;
+        }
+
+        .page {
+            margin-top: 5.5rem;
+        }
+
+        .page-content {
+            padding-bottom: 100px;
+            padding-top: 100px;
+        }
+
+        .heading {
+            margin-bottom: 80px;
+        }
+
+        .heading h2 {
+            text-transform: uppercase;
+            font-size: 2rem !important;
+        }
+
+        .custom-shadow {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px 0px;
+        }
+
+        .custom-button {
+            color:#fff;
+            background-color:#0ea0ff;
+            border-color:#0ea0ff;
+            border-radius: 40px;
+        }
+
+        .custom-button:hover {
+            background-color:#008ce7;
+            border-color:#0084da;
+        }
+        </style>
     </head>
-  <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Mini Framework</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="http://localhost">Home</a>
-            <a class="p-2 text-dark" href="http://localhost/documentation">Documentation</a>
-            <a class="p-2 text-dark" href="https://github.com/dembiec/mini-framework">GitHub</a>
-        </nav>
-        <a class="btn btn-outline-primary" href="#">Log in</a>
-    </div>
-    <div class="container">
-        {% block body %}
-        {% endblock body %}
-    </div>
-    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
-  </body>
+ <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mini Framework</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="#">Start</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="#">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="page-content">
+            <div class="container">
+                {% block body %}
+                {% endblock body %}
+            </div>
+        </section>   
+    </main> 
+    <footer class="border-top py-5 fixed-bottom">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="text-dark" href="#">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-dark" href="#">GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
 </html>
