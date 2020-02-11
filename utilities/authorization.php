@@ -4,6 +4,11 @@ use Utility\Database;
 
 class Authorization
 {
+    public function csrfToken(int $bytes = 32)
+    {
+        return bin2hex(random_bytes($bytes));
+    }
+
     public function userLogin(string $email = null, string $password = null)
     {
         $email = htmlspecialchars($email);
