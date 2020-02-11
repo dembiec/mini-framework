@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="row mt-5 pt-5">
-    <div class="col-md-12">
-        <form action="" method="post">
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="email">E-mail adress</label>
-                    <input type="text" class="form-control" id="email" placeholder="E-mail" name="email">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="password">Password</label>
-                    <input type="text" class="form-control" id="password" placeholder="Password" name="password">
-                </div>
+<div class="row justify-content-center">
+    <div class="heading">
+        <h2>
+            <strong>Log in</strong>
+        </h2>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-0 custom-shadow px-5 py-4">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg custom-button">Log In</button>
+                </form>
             </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Log in</button>
-        </form>
+        </div>
     </div>
 </div>
 {% endblock %}
