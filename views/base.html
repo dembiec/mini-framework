@@ -101,6 +101,13 @@
     <main class="page">
         <section class="page-content">
             <div class="container">
+                <div class="row justify-content-center">
+                    <div class="heading">
+                        <h2>
+                            <strong>{% block heading %}{% endblock heading %}</strong>
+                        </h2>
+                    </div>
+                </div>
                 {% block body %}
                 {% endblock body %}
             </div>
