@@ -12,14 +12,14 @@
     <div class="col-md-8">
         <div class="card border-0 custom-shadow px-5 py-4">
             <div class="card-body">
-                <form>
+                <form action="http://localhost/login" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email">
+                        <input type="text" class="form-control" id="email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block btn-lg custom-button">Log In</button>
                 </form>
