@@ -9,6 +9,9 @@ Log in
     <div class="col-md-8">
         <div class="card border-0 custom-shadow px-5 py-4">
             <div class="card-body">
+                {% if mistakes.show %}
+                <h5 class="card-title text-danger">{{ mistakes.show }}</h5>
+                {% endif %}
                 <form action="http://localhost/login" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
