@@ -34,6 +34,11 @@ class View
 
     public function twigRender(string $file = null, array $varaiables = [])
     {
-        echo $this->twigLoader()->render($file, $varaiables);
+        echo $this->twigLoader()->render($file, [
+            'mistakes' => [
+                'show' => isset($_SESSION['show']) ? $_SESSION['show'] : NULL
+            ],
+            'varaiables' => $varaiables
+        ]);
     }
 }
