@@ -1,12 +1,26 @@
 <?php
 namespace Route;
+use Utility\Authorization;
 
 class Router
 {
+    protected $requestMethod = NULL;
+      
     protected $redirectMap = [
         'get' => [],
         'post' => []
     ];
+
+    function __construct()
+    {
+        $this->requestMethod = strtolower($_SERVER['REQUEST_METHOD']);
+        if ($this->requestMethod === 'post') {
+            if (!isset($_POST['_token']) || $_SESSION['csrf'] !== $_POST['_token']) {
+                exit();
+            }
+        }
+        $_SESSION['csrf'] = Authorization::csrfToken(32);
+    }
 
     public function get(string $url = NULL, string $controller = NULL)
     {
@@ -21,9 +35,8 @@ class Router
     function __destruct()
     {
         $url = $_GET['url'];
-        $requestMethod = strtolower($_SERVER['REQUEST_METHOD']);
 
-        foreach ($this->redirectMap[$requestMethod] as $definedUrl => $definedController) {
+        foreach ($this->redirectMap[$this->requestMethod] as $definedUrl => $definedController) {
             $regEx = str_replace(['{?}', '/'], ['([a-zA-Z0-9]+)', '\/'], $definedUrl);
             if (preg_match('/^'.$regEx.'$/', $url, $parameters)) {            
                 $object = explode("::", $definedController);
