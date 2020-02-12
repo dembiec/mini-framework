@@ -19,7 +19,7 @@ class Login
             $config = Config::read('app');
             header('Location: '.$config['url']);
         } else {
-            echo "Incorrect data";
+            header('Location: '.$_SERVER['HTTP_REFERER']);
         }
     }
 
