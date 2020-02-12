@@ -35,6 +35,7 @@ class View
     public function twigRender(string $file = null, array $varaiables = [])
     {
         echo $this->twigLoader()->render($file, [
+            'csrf' => $_SESSION['csrf'],
             'mistakes' => [
                 'show' => isset($_SESSION['show']) ? $_SESSION['show'] : NULL
             ],
