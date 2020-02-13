@@ -1,5 +1,6 @@
 <?php
 namespace Utility;
+use Utility\Config;
 
 class Http
 {
@@ -27,5 +28,11 @@ class Http
         } else {
             return $parameter;
         }
+    }
+
+    public function appUrl(string $getParameter = NULL)
+    {
+        $appUrl = Config::read('app');
+        return $appUrl['url'].$getParameter;
     }
 }
