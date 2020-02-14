@@ -7,7 +7,7 @@ class Config
     {
         $path = dirname(__DIR__).'/config/'.$file.'.php';
         if (file_exists($path)) {
-            return require_once($path);
+            return require($path);
         } else {
             return false;
         }
