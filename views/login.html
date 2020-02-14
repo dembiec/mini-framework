@@ -12,7 +12,7 @@ Log in
                 {% if mistakes.show %}
                 <h5 class="card-title text-danger">{{ mistakes.show }}</h5>
                 {% endif %}
-                <form action="http://localhost/login" method="POST">
+                <form action="{{ appUrl('login') }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf }}">
                     <div class="form-group">
                         <label for="email">Email</label>
