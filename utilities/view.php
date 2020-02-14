@@ -2,6 +2,8 @@
 namespace Utility;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use Twig\TwigFunction;
+use Utility\Http;
 
 class View
 {
@@ -29,6 +31,13 @@ class View
         } else {
             $twig = new Environment($loader);
         }
+
+        $function = new TwigFunction('appUrl', function(string $url = NULL)
+        {
+            return Http::appUrl($url);
+        });
+        $twig->addFunction($function);
+
         return $twig;
     }
 
