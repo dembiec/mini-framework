@@ -34,4 +34,20 @@ class Authorization
             return FALSE;
         }
     }
+
+    public function forLogged()
+    {
+        if (!isset($_SESSION['id'])) {
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+            exit();
+        }
+    }
+
+    public function forNotLogged()
+    {
+        if (isset($_SESSION['id'])) {
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+            exit();
+        }
+    }
 }
