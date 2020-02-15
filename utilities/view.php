@@ -3,11 +3,11 @@ namespace Utility;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use Twig\TwigFunction;
-use Utility\Http;
+use Utility\ViewExtension;
 
 class View
 {
-    public $cache = TRUE;
+    public $cache = FALSE; //TRUE
     public $clearCache = FALSE;
 
     public function twigCache(bool $cache = FALSE)
@@ -31,12 +31,7 @@ class View
         } else {
             $twig = new Environment($loader);
         }
-
-        $function = new TwigFunction('appUrl', function(string $url = NULL)
-        {
-            return Http::appUrl($url);
-        });
-        $twig->addFunction($function);
+        $twig->addExtension(new ViewExtension());
 
         return $twig;
     }
