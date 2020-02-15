@@ -2,12 +2,11 @@
 namespace Utility;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
-use Twig\TwigFunction;
 use Utility\ViewExtension;
 
 class View
 {
-    public $cache = FALSE; //TRUE
+    public $cache = TRUE;
     public $clearCache = FALSE;
 
     public function twigCache(bool $cache = FALSE)
