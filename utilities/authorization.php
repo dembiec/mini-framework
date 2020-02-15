@@ -25,4 +25,13 @@ class Authorization
             return FALSE;
         }
     }
+
+    public function isLogged()
+    {
+        if (isset($_SESSION['id'])) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 }
