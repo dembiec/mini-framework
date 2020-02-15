@@ -17,7 +17,7 @@ class Login
         $auth = new Authorization();
         if ($auth->userLogin($_POST['email'], $_POST['password'])) {
             $config = Config::read('app');
-            header('Location: '.$config['url']);
+            header('Location: '.$config['url'].'start');
         } else {
             $_SESSION['show'] = 'Incorrect email or password';
             header('Location: '.$_SERVER['HTTP_REFERER']);
