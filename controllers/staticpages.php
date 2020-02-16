@@ -1,5 +1,6 @@
 <?php
 namespace Controller;
+use Utility\Authorization;
 use Utility\view;
 
 class StaticPages
@@ -9,5 +10,18 @@ class StaticPages
         $twig = new View;
         $twig->twigCache(false);
         $twig->twigRender('main.html');
+    }
+
+    public function start()
+    {
+        Authorization::forLogged();
+        $twig = new View;
+        $twig->twigCache(false);
+        $twig->twigRender('start.html', [
+            'id' => $_SESSION['id'],
+            'email' => $_SESSION['email'],
+            'system' => php_uname('s'),
+            'phpversion' => phpversion()
+        ]);
     }
 }
