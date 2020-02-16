@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Start
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-md-6 mb-3">
+        <div class="card border-0 custom-shadow px-5 py-4">
+            <div class="card-body">
+                <h5>Id: {{ varaiables.id }}</h5>
+                <h5>Email: {{ varaiables.email }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col col-md-6 mb-3">
+        <div class="card border-0 custom-shadow px-5 py-4">
+            <div class="card-body">
+                <h5>System: {{ varaiables.system }}</h5>
+                <h5>PHP: {{ varaiables.phpversion }}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
