@@ -8,12 +8,14 @@ class Login
 {
     public function index()
     {
+        Authorization::forNotLogged();
         $twig = new View();
         $twig->twigRender('login.html');
     }
 
     public function login()
     {
+        Authorization::forNotLogged();
         $auth = new Authorization();
         if ($auth->userLogin($_POST['email'], $_POST['password'])) {
             $config = Config::read('app');
@@ -26,6 +28,7 @@ class Login
 
     public function logout()
     {
+        Authorization::forLogged();
         session_destroy();
         $config = Config::read('app');
         header('Location: '.$config['url']);
