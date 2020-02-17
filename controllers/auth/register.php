@@ -11,7 +11,6 @@ class Register
     {
         Authorization::forNotLogged();
         $twig = new View();
-        $twig->twigCache(false);
         $twig->twigRender('register.html');
     }
 
