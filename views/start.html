@@ -22,5 +22,16 @@ Start
             </div>
         </div>
     </div>
+    {% if varaiables.logs %}
+    <div class="col col-12">
+        <div class="card border-0 custom-shadow px-5 py-4">
+            <div class="card-body">
+                <pre>
+                    <p>{{varaiables.logs}}</p>
+                </pre>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
