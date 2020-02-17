@@ -9,9 +9,9 @@ Log in
     <div class="col-md-8">
         <div class="card border-0 custom-shadow px-5 py-4">
             <div class="card-body">
-                {% if mistakes.show %}
-                <h5 class="card-title text-danger">{{ mistakes.show }}</h5>
-                {% endif %}
+                {% for error in mistakes.show %}
+                <h5 class="card-title text-danger">{{ error }}</h5>
+                {% endfor %}
                 <form action="{{ appUrl('login') }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf }}">
                     <div class="form-group">
