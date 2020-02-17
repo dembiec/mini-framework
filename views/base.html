@@ -34,10 +34,6 @@
             color: #fff !important;
         }
 
-        .active {
-            opacity: .75 !important;
-        }
-
         .page {
             margin-top: 5.5rem;
         }
@@ -76,13 +72,13 @@
  <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light custom-navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">Mini Framework</a>
+            <a class="navbar-brand" href="{{ appUrl() }}">Mini Framework</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link custom-nav-link" href="{{ appUrl() }}">Home</a>
                     </li>
                     <li class="nav-item">
