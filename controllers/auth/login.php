@@ -21,7 +21,7 @@ class Login
             $config = Config::read('app');
             header('Location: '.$config['url'].'start');
         } else {
-            $_SESSION['show'] = 'Incorrect email or password';
+            $_SESSION['show'] = ['Incorrect email or password'];
             header('Location: '.$_SERVER['HTTP_REFERER']);
         }
     }
