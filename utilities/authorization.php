@@ -26,6 +26,22 @@ class Authorization
         }
     }
 
+    public function userRegister(string $email = NULL, string $password = NULL)
+    {
+        $email = htmlspecialchars($email);
+        $password = htmlspecialchars($password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        $database = new Database();
+        $result = $database->query("INSERT INTO `users` (`email`, `password`) VALUES ('{$email}', '{$password}')");
+
+        if ($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     public function isLogged()
     {
         if (isset($_SESSION['id'])) {
