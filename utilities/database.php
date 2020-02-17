@@ -16,7 +16,12 @@ class Database
     public function query(string $query = null)
     {
         $query = htmlspecialchars($query);
-        $result = $this->connect()->query($query);
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connect()->query($query);
+        
+    }
+
+    public function fetchAll()
+    {
+        return $this->query()->fetchAll(PDO::FETCH_ASSOC);
     }
 }
