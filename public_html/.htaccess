@@ -1,4 +1,5 @@
 RewriteEngine On
 RewriteRule ^([^.]+)/? index.php?url=$1 [L,QSA]
 
-#php_value error_reporting 0
+php_flag display_errors off
+php_value error_log  ../errors.log
