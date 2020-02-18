@@ -11,3 +11,8 @@ $router->post('register', 'Controller\Auth\Register::register');
 $router->get('logout', 'Controller\Auth\Login::logout');
 
 $router->get('start', 'Controller\StaticPages::start');
+<<<<<<< HEAD
+=======
+
+$router->get('documentation/{?}', 'Controller\Documentation::show');
+>>>>>>> route
