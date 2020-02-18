@@ -45,4 +45,11 @@ class View
             'varaiables' => $varaiables
         ]);
     }
+
+    function __destruct()
+    {
+        if (isset($_SESSION['show'])) {
+            unset($_SESSION['show']);
+        }
+    }
 }
