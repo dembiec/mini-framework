@@ -9,7 +9,6 @@ class Documentation
         $viewPath =  'documentation/'.$parameter[0].'.html';
         if (file_exists(dirname(__DIR__).'/views/'.$viewPath)) {
             $twig = new View();
-            $twig->twigCache(FALSE);
             $twig->twigRender($viewPath);
         } else {
             // Redirect to 404 page
