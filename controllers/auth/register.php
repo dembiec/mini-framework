@@ -28,18 +28,19 @@ class Register
                 'password' => ($password) ? '' : 'Password must contain at least 8 characters',
                 'passwordConfirmation' => ($passwordConfirmation) ? '' : 'The passwords you have entered do not match'
             ];
-            header('Location: '.$_SERVER['HTTP_REFERER']);
+            $config = Config::read('app');
+            header('Location: '.$config['url'].'register');
             exit();
         }
 
         $auth = new Authorization();
         if ($auth->userRegister($_POST['email'], $_POST['password'])) {
-            $config = Config::read('app');
             header('Location: '.$config['url'].'login');
             exit();
         } else {
             $_SESSION['show'] = ['Email already exists in the database'];
-            header('Location: '.$_SERVER['HTTP_REFERER']);
+            header('Location: '.$config['url'].'register');
+            exit();
         }
     }
 }
