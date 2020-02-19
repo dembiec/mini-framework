@@ -1,6 +1,7 @@
 <?php
 namespace Utility;
 use Utility\Database;
+use Utility\Config;
 
 class Authorization
 {
@@ -54,7 +55,8 @@ class Authorization
     public function forLogged()
     {
         if (!isset($_SESSION['id'])) {
-            header('Location: '.$_SERVER['HTTP_REFERER']);
+            $config = Config::read('app');
+            header('Location: '.$config['url']);
             exit();
         }
     }
@@ -62,7 +64,8 @@ class Authorization
     public function forNotLogged()
     {
         if (isset($_SESSION['id'])) {
-            header('Location: '.$_SERVER['HTTP_REFERER']);
+            $config = Config::read('app');
+            header('Location: '.$config['url']);
             exit();
         }
     }
