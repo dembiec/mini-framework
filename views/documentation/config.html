@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <h4>Reading configuration</h4>
+        <p>To read the configuration use the <code>Utility\Config</code> class. The returned configuration is an array. Configuration files can be created in the <code>config/</code> directory</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\Config;
+                    Class Foo
+                    {
+                        $config = Config::read('app');
+                        echo $config[index];
+                        // Your code   
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <h4>Creating routing</h4>
+        <p>Routes can be configured in the <code>routing/http.php</code> file using two functions <code>get()</code> and <code>post()</code>. Which take two parameters address and redirection.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">routing/http.php</div>
+            <div class="card-body">
+                <pre>
+                    use Route\Router;
+                    $router = new Router();
+
+                    $router->get('uri', 'Controller\Class::method');
+                    $router->post('uri', 'Controller\Class::method');
+                </pre>
+            </div>
+        </div>
+        <h4>Parameter declaration</h4>
+        <p>declaring the parameter consists in entering <code>{?}</code> into the address.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">routing/http.php</div>
+            <div class="card-body">
+                <pre>
+                    use Route\Router;
+                    $router = new Router();
+
+                    $router->get('uri/{?}', 'Controller\Class::method');
+                    $router->post('uri/{?}', 'Controller\Class::method');
+
+                    // example
+                    $router->get('foo/{?}/bar', 'Controller\Foo::bar');
+                </pre>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

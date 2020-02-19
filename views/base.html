@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-        <title>Hello, world!</title>
+        <title>{{ appTitle() }}</title>
         <style>
         * {
             font-family: 'Lato', sans-serif;
@@ -67,12 +67,16 @@
             background-color:#008ce7;
             border-color:#0084da;
         }
+
+        code {
+            color: #008ce7;
+        }
         </style>
     </head>
  <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light custom-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ appUrl() }}">Mini Framework</a>
+            <a class="navbar-brand" href="{{ appUrl() }}">{{ appTitle() }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -115,14 +119,14 @@
             </div>
         </section>   
     </main> 
-    <footer class="border-top py-5 fixed-bottom">
+    <footer class="bg-white border-top py-5 fixed-bottom">
         <div class="container">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="text-dark" href="{{ appUrl('documentation') }}">Documentation</a>
+                    <a class="text-dark" href="{{ appUrl('documentation/start') }}">Documentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-dark" href="https://github.com/dembiec/mini-framework">GitHub</a>
+                    <a class="text-dark" href="https://github.com/dembiec/mini-framework" target="_blank">GitHub</a>
                 </li>
             </ul>
         </div>

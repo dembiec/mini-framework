@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <h4>Creating a controller</h4>
+        <p>The controller is created in the <code>controllers/</code> directory in it with a class with the same name as the file in which it is located. What you can see in the example</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    Class Foo
+                    {
+                        // Your code   
+                    }
+                </pre>
+            </div>
+        </div>
+        <h4>Receiving parameters passed in the address</h4>
+        <p>The parameter that we declared in routing can be obtained by declaring the method variable. Please note that the parameter we receive is an array.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    Class Foo
+                    {
+                        public function bar(array $parameters = NULL)
+                        {
+                            echo $parameters[index];
+                        }
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
