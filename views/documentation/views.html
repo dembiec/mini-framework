@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <h4>Displaying view</h4>
+        <p>Framework uses. The <code>Utility\View</code> class has been created. Call it and pass its parameter with the view name. You can create your own views in the <code>views/</code> folder according to the twig documentation</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\View;
+                    Class Foo
+                    {
+                        $twig = new View();
+                        $twig->twigRender($viewName); 
+                    }
+                </pre>
+            </div>
+        </div>
+        <h4>Disabling cache</h4>
+        <p>By default, cache is enabled. To disable it, call the <code>twigCache()</code> function with the <code>FALSE</code> parameter.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\View;
+                    Class Foo
+                    {
+                        $twig = new View();
+                        $twig->twigCache(FALSE);
+                        $twig->twigRender($viewName); 
+                    }
+                </pre>
+            </div>
+        </div>
+        <h4>Clearing the cache</h4>
+        <p>To clear the cache, call the <code>twigClearCache()</code> function with the <code>TRUE</code> parameter.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\View;
+                    Class Foo
+                    {
+                        $twig = new View();
+                        $twig->twigClearCache(TRUE);
+                        $twig->twigRender($viewName); 
+                    }
+                </pre>
+            </div>
+        </div>
+        <h4>Passing own function to view</h4>
+        <p>the transfer of own functionality takes place in the <code>utilities/viewextension.php</code> file. In the <code>getFunctions()</code> method.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">utilities/viewextension.php</div>
+            <div class="card-body">
+                <pre>
+                    public function getFunctions()
+                    {
+                        return [
+                            new TwigFunction('functionName', function(string $parameter = NULL) {
+                                return Class::method($parameter); 
+                            })
+                        ];
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

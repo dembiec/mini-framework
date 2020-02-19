@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <h4>Performing database queries</h4>
+        <p>To perform a database query, use the <code>Utility\Database</code> class. Calling the <code>query()</code> method on it and passing a query to it.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\Database;
+                    Class Foo
+                    {
+                        $database = new Database();
+                        $database->query("SELECT * FROM `bar`");
+                    }
+                </pre>
+            </div>
+        </div>
+        <h4>Receiving data for a SELECT query</h4>
+        <p>After executing the query, call the <code>fetchAll()</code> method.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\Database;
+                    Class Foo
+                    {
+                        $database = new Database();
+                        $result = $database->query("SELECT * FROM `bar`");
+                        $result->fetchAll();
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

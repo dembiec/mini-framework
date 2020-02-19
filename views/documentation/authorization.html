@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <h4>Allowing logged in access</h4>
+        <p>Use the <code>Utility\Authorization</code> class and call the <code>forLogged()</code> method.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\Authorization;
+                    Class Foo
+                    {
+                        Authorization::forLogged();
+                        // Your code   
+                    }
+                </pre>
+            </div>
+        </div>
+        <h4>Prohibited access for logged</h4>
+        <p>Use the <code>Utility\Authorization</code> class and call the <code>forNotLogged()</code> method.</p>
+        <div class="card bg-light mb-5">
+            <div class="card-header">controllers/foo.php</div>
+            <div class="card-body">
+                <pre>
+                    namespace Controller\Foo;
+                    use Utility\Authorization;
+                    Class Foo
+                    {
+                        Authorization::forNotLogged();
+                        // Your code   
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

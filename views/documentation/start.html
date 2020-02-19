@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+Documentation
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col col-12">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action">
+                <a href="{{ appUrl('documentation/config') }}" class="text-dark">Configuration</a>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <a href="{{ appUrl('documentation/routing') }}" class="text-dark">Routing</a>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <a href="{{ appUrl('documentation/controllers') }}" class="text-dark">Controllers</a>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <a href="{{ appUrl('documentation/authorization') }}" class="text-dark">Authorization</a>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <a href="{{ appUrl('documentation/database') }}" class="text-dark">Database</a>
+            </li><li class="list-group-item list-group-item-action">
+                <a href="{{ appUrl('documentation/views') }}" class="text-dark">View</a>
+            </li>
+          </ul>
+    </div>
+</div>
+{% endblock %}
