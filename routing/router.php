@@ -1,6 +1,7 @@
 <?php
 namespace Route;
 use Utility\Authorization;
+use Utility\Config;
 
 class Router
 {
@@ -42,9 +43,10 @@ class Router
                 $object = explode("::", $definedController);
                 array_splice($parameters, 0,1);
                 call_user_func([new $object[0], $object[1]], $parameters);
-                exit;
+                exit();
             }
         }
-        echo '404';
+        $config = Config::read('app');
+        header('Location: '.$config['url'].'404');
     }
 }
