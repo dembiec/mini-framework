@@ -13,3 +13,5 @@ $router->get('logout', 'Controller\Auth\Login::logout');
 $router->get('start', 'Controller\StaticPages::start');
 
 $router->get('documentation/{?}', 'Controller\Documentation::show');
+
+$router->get('404', 'Controller\Errors::index404');
