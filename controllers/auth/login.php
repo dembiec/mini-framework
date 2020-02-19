@@ -17,12 +17,12 @@ class Login
     {
         Authorization::forNotLogged();
         $auth = new Authorization();
+        $config = Config::read('app');
         if ($auth->userLogin($_POST['email'], $_POST['password'])) {
-            $config = Config::read('app');
             header('Location: '.$config['url'].'start');
         } else {
             $_SESSION['show'] = ['Incorrect email or password'];
-            header('Location: '.$_SERVER['HTTP_REFERER']);
+            header('Location: '.$config['url'].'login');
         }
     }
 
